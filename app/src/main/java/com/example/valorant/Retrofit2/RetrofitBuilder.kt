@@ -12,11 +12,20 @@ object RetrofitBuilder {
     val gson : Gson =  GsonBuilder().setLenient().create();
     private val retrofitClient: Retrofit.Builder by lazy{
         Retrofit.Builder()
-            .baseUrl("http://192.168.25.41:5000/")
-            .addConverterFactory(GsonConverterFactory.create(gson))
     }
     // API서버와 연결 시 Retrofit객체를 구현할 인터페이스를 통해 만든다.
     val CONNET_SERVICE: APIInterface by lazy{
-        retrofitClient.build().create(APIInterface::class.java)
+        retrofitClient
+                .baseUrl("http://192.168.25.41:5000/")
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .build()
+                .create(APIInterface::class.java)
+    }
+    val connect_riot: APIInterface by lazy {
+        retrofitClient
+                .baseUrl("https://auth.riotgames.com/")
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .build()
+                .create(APIInterface::class.java)
     }
 }

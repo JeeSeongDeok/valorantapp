@@ -11,4 +11,7 @@ interface APIInterface {
         @Query("pw")pw:String
     ): Call<List<storeData>>
 
+    @GET("api/v1/authorization")
+    @Headers("X-Forwarded-For: ")
+    fun riotToken()
 }

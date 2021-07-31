@@ -1,6 +1,7 @@
 package com.example.valorant.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,8 +19,16 @@ class StatsFragment : Fragment(){
     ): View? {
         binding = FragmentStatsBinding.inflate(inflater, container, false)
         mBinding = binding
-
+        setListener()
         return mBinding?.root
+    }
+
+    fun setListener(){
+        mBinding?.statsTextInputLayout?.setEndIconOnClickListener {
+            it.setOnClickListener {
+                Log.e("로그", "검색")
+            }
+        }
     }
 
     override fun onDestroyView() {
