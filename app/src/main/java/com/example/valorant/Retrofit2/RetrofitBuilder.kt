@@ -2,14 +2,19 @@ package com.example.valorant.Retrofit2
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import okhttp3.JavaNetCookieJar
+import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.net.CookieManager
 
 // 싱글톤
 object RetrofitBuilder {
     // Retrofit을 사용하기 위한 함수
     // Base_url에 서버의 url를 넣으면 사용 가능하다
-    val gson : Gson =  GsonBuilder().setLenient().create();
+    val gson : Gson =  GsonBuilder().setLenient().create()
+
+
     private val retrofitClient: Retrofit.Builder by lazy{
         Retrofit.Builder()
     }

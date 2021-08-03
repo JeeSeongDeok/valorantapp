@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.Valorant" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/primary</item>
-        <item name="colorPrimaryDark"><!-- 아직 지정 x --></item>
+        <item name="colorPrimaryDark">@color/background</item>
         <item name="colorAccent">@color/secondary</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>

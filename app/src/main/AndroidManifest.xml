@@ -11,6 +11,9 @@
         android:theme="@style/Theme.Valorant"
         android:usesCleartextTraffic="true">
         <activity android:name=".views.MainActivity">
+
+        </activity>
+        <activity android:name=".views.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

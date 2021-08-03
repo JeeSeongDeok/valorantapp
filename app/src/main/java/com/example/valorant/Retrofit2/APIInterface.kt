@@ -1,6 +1,6 @@
 package com.example.valorant.Retrofit2
 
-import com.example.valorant.data.storeData
+import com.example.valorant.data.*
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -10,8 +10,9 @@ interface APIInterface {
         @Query("id")id:String,
         @Query("pw")pw:String
     ): Call<List<storeData>>
-
-    @GET("api/v1/authorization")
-    @Headers("X-Forwarded-For: ")
-    fun riotToken()
+    @GET("getMain")
+    fun getMain(
+            @Query("id")id:String,
+            @Query("pw")pw:String
+    ): Call<seasonData>
 }
