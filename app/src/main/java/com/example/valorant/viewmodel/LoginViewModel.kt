@@ -7,9 +7,11 @@ import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-
-
-
+import com.example.valorant.Retrofit2.RetrofitBuilder
+import com.example.valorant.data.nameTagData
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class LoginViewModel(application: Application) : AndroidViewModel(application) {
@@ -37,7 +39,17 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
 
     fun connectLogin(id: String, pw: String){
         var connectResult:Boolean = true
+        val call = RetrofitBuilder.CONNET_SERVICE
+        call.getFirstLogin(id, pw).enqueue(object: Callback<nameTagData>{
+            override fun onFailure(call: Call<nameTagData>, t: Throwable) {
 
+            }
+
+            override fun onResponse(call: Call<nameTagData>, response: Response<nameTagData>) {
+                Log.e("로그", response.body().toString())
+            }
+
+        })
         // connect 성공시
         if(connectResult){
             prefs.edit().putString("id", id).apply()

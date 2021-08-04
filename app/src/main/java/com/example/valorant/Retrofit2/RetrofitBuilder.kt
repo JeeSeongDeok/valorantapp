@@ -26,11 +26,4 @@ object RetrofitBuilder {
                 .build()
                 .create(APIInterface::class.java)
     }
-    val connect_riot: APIInterface by lazy {
-        retrofitClient
-                .baseUrl("https://auth.riotgames.com/")
-                .addConverterFactory(GsonConverterFactory.create(gson))
-                .build()
-                .create(APIInterface::class.java)
-    }
 }

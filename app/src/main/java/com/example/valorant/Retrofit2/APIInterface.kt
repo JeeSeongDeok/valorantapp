@@ -15,4 +15,9 @@ interface APIInterface {
             @Query("id")id:String,
             @Query("pw")pw:String
     ): Call<seasonData>
+    @GET("first_login")
+    fun getFirstLogin(
+            @Query("id")id:String,
+            @Query("pw")pw:String
+    ): Call<nameTagData>
 }
