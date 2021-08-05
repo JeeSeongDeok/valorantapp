@@ -1,20 +1,17 @@
-package com.example.valorant.views
+package com.example.valorant.ui.main
 
-import android.app.AlertDialog
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.example.valorant.R
 import com.example.valorant.databinding.ActivityMainBinding
-import com.example.valorant.fragment.HomeFragment
-import com.example.valorant.fragment.StatsFragment
-import com.example.valorant.fragment.StoreFragment
+import com.example.valorant.ui.home.HomeFragment
+import com.example.valorant.ui.setting.SettingFragment
+import com.example.valorant.ui.stats.StatsFragment
+import com.example.valorant.ui.store.StoreFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -24,6 +21,7 @@ class MainActivity : AppCompatActivity() {
     private val home = HomeFragment()
     private val stats = StatsFragment()
     private val store = StoreFragment()
+    private val setting = SettingFragment()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // 바인딩
@@ -50,6 +48,10 @@ class MainActivity : AppCompatActivity() {
                 // 상점 이동
                 R.id.storeFragment -> {
                     changeFragment(store)
+                }
+                // 설정 이동
+                R.id.settingFragment ->{
+                    changeFragment(setting)
                 }
             }
             true

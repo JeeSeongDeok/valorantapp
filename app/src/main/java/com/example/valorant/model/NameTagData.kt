@@ -1,4 +1,4 @@
-package com.example.valorant.data
+package com.example.valorant.data.repository
 
 import com.google.gson.annotations.SerializedName
 

@@ -1,12 +1,12 @@
-package com.example.valorant.views
+package com.example.valorant.ui.login
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.LifecycleOwner
 import com.example.valorant.databinding.ActivityLoginBinding
-import com.example.valorant.viewmodel.LoginViewModel
+import com.example.valorant.ui.main.MainActivity
 
 class LoginActivity: AppCompatActivity(), View.OnClickListener {
     private var mBinding: ActivityLoginBinding? = null
@@ -21,13 +21,21 @@ class LoginActivity: AppCompatActivity(), View.OnClickListener {
         setContentView(binding.root)
         // Observer
         model.idLiveData.observe(this){
-            if(it.isEmpty()){
-
+            if(it.isNotEmpty()){
                 binding.id.setText(it)
+            }
+        }
+        // 연결 성공 여부
+        model.resultLiveData.observe(this){
+            if(it){
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
             }
         }
         // setListener
         setListener()
+        // Ui Setting
+
     }
     fun setListener(){
         binding.login.setOnClickListener(this)

@@ -1,12 +1,10 @@
-package com.example.valorant.Retrofit2
+package com.example.valorant.di
 
+import com.example.valorant.data.api.APIInterface
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import okhttp3.JavaNetCookieJar
-import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.net.CookieManager
 
 // 싱글톤
 object RetrofitBuilder {

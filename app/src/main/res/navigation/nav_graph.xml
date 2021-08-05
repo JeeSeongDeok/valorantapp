@@ -6,19 +6,24 @@
     app:startDestination="@id/homeFragment">
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.valorant.fragment.HomeFragment"
+        android:name="com.example.valorant.ui.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
     </fragment>
     <fragment
         android:id="@+id/statsFragment"
-        android:name="com.example.valorant.fragment.StatsFragment"
+        android:name="com.example.valorant.ui.stats.StatsFragment"
         android:label="fragment_stats"
         tools:layout="@layout/fragment_stats" >
     </fragment>
     <fragment
         android:id="@+id/storeFragment"
-        android:name="com.example.valorant.fragment.StoreFragment"
+        android:name="com.example.valorant.ui.store.StoreFragment"
         android:label="fragment_store"
         tools:layout="@layout/fragment_store" />
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.example.valorant.ui.setting.SettingFragment"
+        android:label="fragment_setting"
+        tools:layout="@layout/fragment_setting"/>
 </navigation>

@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.LoginActivity">
+    android:background="@color/background"
+    tools:context=".ui.login.LoginActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -72,7 +73,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:drawablePadding="16dp"
-                            android:hint="Username"
+                            android:hint="Riot ID"
                             android:inputType="text"
                             android:maxLines="1"
                             android:textColor="@android:color/black"
@@ -93,7 +94,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:drawablePadding="16dp"
-                            android:hint="Userpassword"
+                            android:hint="Password"
                             android:inputType="text"
                             android:maxLines="1"
                             android:textColor="@android:color/black"

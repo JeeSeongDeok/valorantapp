@@ -4,5 +4,8 @@
     <color name="primary">#FF1C252E</color>
     <color name="primaryVariant">#FFF5F5F5</color>
     <color name="secondary">#FFFF4654</color>
+    <color name="cardViewTitle">#FFFFFF</color>
+    <color name="cardViewContent">#80FFFFFF</color>
+    <color name="navBottom">#F0F0F2</color>
 </resources>
 

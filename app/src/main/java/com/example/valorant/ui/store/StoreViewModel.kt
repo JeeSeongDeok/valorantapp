@@ -1,11 +1,10 @@
-package com.example.valorant.viewmodel
+package com.example.valorant.ui.store
 
 import android.util.Log
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.valorant.Retrofit2.RetrofitBuilder
-import com.example.valorant.data.storeData
+import com.example.valorant.di.RetrofitBuilder
+import com.example.valorant.data.repository.storeData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

@@ -1,4 +1,4 @@
-package com.example.valorant.fragment
+package com.example.valorant.ui.store
 
 import androidx.fragment.app.Fragment
 import android.os.Bundle
@@ -10,8 +10,7 @@ import android.widget.TextView
 import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.example.valorant.databinding.FragmentStoreBinding
-import com.example.valorant.dialog.LoginDialog
-import com.example.valorant.viewmodel.StoreViewModel
+import com.example.valorant.ui.login.LoginDialog
 
 class StoreFragment: Fragment(),  View.OnClickListener{
     private var mBinding: FragmentStoreBinding? = null

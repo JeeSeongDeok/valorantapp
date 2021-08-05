@@ -1,16 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/homeFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
     android:orientation="vertical"
-    tools:context="com.example.valorant.fragment.HomeFragment">
+    tools:context="com.example.valorant.ui.home.HomeFragment">
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:fontFamily="@font/scdream8"
+        android:textColor="@color/primary"
+        android:textSize="25dp"
+        android:text="Contents" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_height="230dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="4dp"
+        app:cardUseCompatPadding="true"
+        app:cardPreventCornerOverlap="false"
+        android:id="@+id/home_statsCardView">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/home_statsImageView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:src="@drawable/cardview_background"
+                android:foreground="@drawable/home_stats_cardview_gradient"/>
+
+            <TextView
+                android:id="@+id/home_statsTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/scdream8"
+                android:text="전적검색"
+                android:textColor="@color/cardViewTitle"
+                android:textSize="30dp"
+                android:layout_above="@+id/home_statsContent"/>
+            <TextView
+                android:id="@+id/home_statsContent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/scdream8"
+                android:text="나의 전적을 확인해보세요"
+                android:textColor="@color/cardViewContent"
+                android:textSize="15dp"
+                android:layout_alignParentBottom="true"/>
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_height="230dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="4dp"
+        app:cardUseCompatPadding="true"
+        app:cardPreventCornerOverlap="false"
+        android:id="@+id/home_storeCardView">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/home_storeImageView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:src="@drawable/cardview_background2"
+                android:foreground="@drawable/home_store_cardview_gradient"/>
+
+            <TextView
+                android:id="@+id/home_storeTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/scdream8"
+                android:text="나만의 상점"
+                android:textColor="@color/cardViewTitle"
+                android:textSize="30dp"
+                android:layout_alignLeft="@id/home_storeContent"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true" />
+            <TextView
+                android:id="@+id/home_storeContent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/scdream8"
+                android:text="오늘은 용벤달이 나올까요?"
+                android:textColor="@color/cardViewContent"
+                android:textSize="15dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/home_storeTitle"/>
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
 </LinearLayout>

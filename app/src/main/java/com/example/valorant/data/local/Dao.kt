@@ -1,11 +1,10 @@
-package com.example.valorant.DB
+package com.example.valorant.data.local
 
-import android.provider.ContactsContract
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
-import com.example.valorant.data.Entity
+import com.example.valorant.model.Entity
 
 @Dao
 interface Dao {
@@ -16,5 +15,5 @@ interface Dao {
     fun insertAll(vararg contacts: Entity)
 
     @Delete
-    fun delete(contacts:Entity)
+    fun delete(contacts: Entity)
 }

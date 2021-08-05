@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     android:orientation="vertical"
-    tools:context="com.example.valorant.fragment.StatsFragment">
+    tools:context="com.example.valorant.ui.stats.StatsFragment">
 
     <TextView
         android:id="@+id/stats_title"

@@ -1,8 +1,7 @@
-package com.example.valorant.dialog
+package com.example.valorant.ui.login
 
 import android.app.Dialog
 import android.content.Context
-import android.view.WindowManager
 import android.widget.Button
 import android.widget.EditText
 import com.example.valorant.R

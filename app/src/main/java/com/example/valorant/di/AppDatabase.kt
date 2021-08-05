@@ -1,10 +1,11 @@
-package com.example.valorant.DB
+package com.example.valorant.di
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.valorant.data.Entity
+import com.example.valorant.data.local.Dao
+import com.example.valorant.model.Entity
 
 @Database(entities = [Entity::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {

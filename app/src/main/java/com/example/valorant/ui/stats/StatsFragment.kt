@@ -1,4 +1,4 @@
-package com.example.valorant.fragment
+package com.example.valorant.ui.stats
 
 import android.os.Bundle
 import android.util.Log

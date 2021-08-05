@@ -7,8 +7,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F5F5"
-    tools:context=".views.MainActivity">
+    android:background="@color/background"
+    tools:context=".ui.main.MainActivity">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/my_nav_host"
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         app:menu="@menu/nav_menu"
         android:id="@+id/myBottomNav"
-        app:backgroundTint="#F9F9F9"
+        app:backgroundTint="@color/navBottom"
         app:labelVisibilityMode="unlabeled"
         app:itemIconSize="32dp"/>
 
