@@ -4,8 +4,8 @@
         android:shape="rectangle"
         android:type="linear"
         android:angle="270"
-        android:startColor="#1A000000"
-        android:endColor="#1C252E" />
+        android:startColor="@color/cardViewStatsStart"
+        android:endColor="@color/cardViewStatsEnd" />
     <corners
         android:radius="20dp">
     </corners>

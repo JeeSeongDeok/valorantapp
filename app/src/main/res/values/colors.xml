@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="background">#FFF5F5F5</color>
+    <color name="loginBackground">#F5F5F5</color>
     <color name="primary">#FF1C252E</color>
     <color name="primaryVariant">#FFF5F5F5</color>
     <color name="secondary">#FFFF4654</color>
-    <color name="cardViewTitle">#FFFFFF</color>
-    <color name="cardViewContent">#80FFFFFF</color>
+    <color name="cardViewTitle">#DEFFFFFF</color>
+    <color name="cardViewContent">#ABFFFFFF</color>
+    <color name="cardViewStatsStart">#1A000000</color>
+    <color name="cardViewStatsEnd">#1C252E</color>
+    <color name="cardViewStoreStart">#33000000</color>
+    <color name="cardViewStoreEnd">#1C252E</color>
     <color name="navBottom">#F0F0F2</color>
 </resources>
 

@@ -80,4 +80,6 @@ dependencies {
     implementation "androidx.room:room-guava:$room_version"
     // Test helpers
     testImplementation "androidx.room:room-testing:$room_version"
+    // circle Imageview
+    implementation 'com.mikhaellopez:circularimageview:4.3.0'
 }

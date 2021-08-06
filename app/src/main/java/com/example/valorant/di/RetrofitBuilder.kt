@@ -24,4 +24,11 @@ object RetrofitBuilder {
                 .build()
                 .create(APIInterface::class.java)
     }
+    val connect_henrikdev: APIInterface by lazy {
+        retrofitClient
+                .baseUrl("https://api.henrikdev.xyz/")
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .build()
+                .create(APIInterface::class.java)
+    }
 }

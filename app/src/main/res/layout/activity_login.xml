@@ -23,8 +23,9 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="250dp"
+                    android:alpha="0.3"
                     android:src="@drawable/logos"
-                    android:scaleType="fitXY"/>
+                    android:scaleType="fitXY" />
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="250dp"
@@ -42,7 +43,8 @@
                 app:cardCornerRadius="8dp"
                 app:cardElevation="4dp"
                 app:cardUseCompatPadding="true"
-                app:contentPadding="16dp">
+                app:contentPadding="16dp"
+                app:cardBackgroundColor="@color/loginBackground">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -58,7 +60,7 @@
                         android:layout_marginBottom="24dp"
                         android:gravity="center_horizontal"
                         android:text="로그인"
-                        android:textColor="#000000"
+                        android:textColor="@color/primary"
                         android:textSize="24sp" />
 
                     <com.google.android.material.textfield.TextInputLayout
@@ -76,7 +78,7 @@
                             android:hint="Riot ID"
                             android:inputType="text"
                             android:maxLines="1"
-                            android:textColor="@android:color/black"
+                            android:textColor="@color/primary"
                             android:textSize="16sp" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -97,7 +99,7 @@
                             android:hint="Password"
                             android:inputType="text"
                             android:maxLines="1"
-                            android:textColor="@android:color/black"
+                            android:textColor="@color/primary"
                             android:textSize="16sp" />
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -112,7 +114,7 @@
                         android:background="@drawable/login_buttonshape"
                         android:text="Login"
                         android:textAllCaps="false"
-                        android:textColor="@color/primaryVariant"
+                        android:textColor="#F5F5F5"
                         android:textSize="24sp" />
 
                 </LinearLayout>

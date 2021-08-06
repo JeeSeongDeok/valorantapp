@@ -1,8 +1,6 @@
 package com.example.valorant.ui.login
 
 import android.app.Application
-import android.content.Context
-import android.content.SharedPreferences
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
@@ -53,6 +51,7 @@ class LoginViewModel(application: Application) : AndroidViewModel(application) {
                     // 닉네임과 태그를 저장하기 위해서
                     App.prefs.setString("name", response.body()?.name.toString())
                     App.prefs.setString("tag", response.body()?.tag.toString())
+                    App.prefs.setString("uid", response.body()?.uid.toString())
                     // connect를 성공, activity가 관찰하고 있기 때문에 값 변경
                     _resultLiveData.value = true
                 }
