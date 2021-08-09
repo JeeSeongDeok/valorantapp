@@ -62,11 +62,8 @@
                     android:layout_weight="1"
                     android:src="@drawable/rankicon"
                     app:civ_border_color_direction="top_to_bottom"
-                    app:civ_border_color="@color/primary"
                     app:civ_border_width="4dp"
-                    app:civ_circle_color="@color/primary"
-                    app:civ_shadow="true"
-                    app:civ_shadow_color="@color/secondary"
+
                     app:civ_shadow_radius="10dp" />
             </LinearLayout>
 

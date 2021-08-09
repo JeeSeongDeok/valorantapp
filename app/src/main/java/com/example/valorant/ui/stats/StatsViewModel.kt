@@ -6,21 +6,22 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.valorant.App
 import com.example.valorant.di.RetrofitBuilder
-import com.example.valorant.model.mmrData
-import com.example.valorant.model.mmrList
+import com.example.valorant.model.matchList
+import com.example.valorant.model.matchData
+
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class StatsViewModel : ViewModel() {
     // 통신에서 받을 mmr을 LiveData로 설정
-    private val _mmrLiveData = MutableLiveData<mmrList>()
-    val mmrLiveData: LiveData<mmrList>
+    private val _mmrLiveData = MutableLiveData<MutableList<matchList>>()
+    val mmrLiveData: MutableLiveData<MutableList<matchList>>
         get() = _mmrLiveData
 
     init{
         // 초기화
-        _mmrLiveData.value = null
+        _mmrLiveData.value = ArrayList()
     }
     fun getMMR(){
         val call = RetrofitBuilder.connect_henrikdev
@@ -30,17 +31,17 @@ class StatsViewModel : ViewModel() {
             return
 
         // uid로 통신
-        call.getMMR(uid).enqueue(object: Callback<mmrData>{
-            override fun onFailure(call: Call<mmrData>, t: Throwable) {
+        call.getMMR(uid).enqueue(object: Callback<matchData>{
+            override fun onFailure(call: Call<matchData>, t: Throwable) {
                 // stats: 500
                 Log.e("로그", "에러: $t")
             }
 
-            override fun onResponse(call: Call<mmrData>, response: Response<mmrData>) {
+            override fun onResponse(call: Call<matchData>, response: Response<matchData>) {
                 if(response.isSuccessful){
                     // stats 200
                     Log.e("로그", "결과: " + response.body().toString())
-                    _mmrLiveData.value = response.body()?.data
+                    _mmrLiveData.value = response.body()?.data as MutableList<matchList>?
                 }
                 else{
                     // code 400
