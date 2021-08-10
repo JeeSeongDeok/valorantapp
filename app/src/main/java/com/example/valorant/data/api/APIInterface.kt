@@ -23,7 +23,7 @@ interface APIInterface {
             @Query("id")id:String,
             @Query("pw")pw:String
     ): Call<nameTagData>
-    @GET("valorant/v1/by-puuid/mmr/kr/{puuid}")
+    @GET("valorant/v1/by-puuid/mmr-history/kr/{puuid}")
     fun getMMR(
             @Path("puuid") uid: String?,
     ): Call<matchData>
