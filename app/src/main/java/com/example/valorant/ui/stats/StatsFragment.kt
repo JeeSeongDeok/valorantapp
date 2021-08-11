@@ -10,10 +10,14 @@ import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.example.valorant.App
 import com.example.valorant.databinding.FragmentStatsBinding
+import com.example.valorant.model.matchList
+import com.example.valorant.ui.loading.LoadingDialog
+import com.example.valorant.ui.stats.adapter.RecyclerAdapterMatch
 import com.example.valorant.utils.ChangerankUtil
 
 
 class StatsFragment : Fragment(){
+    private lateinit var matchAdapter : RecyclerAdapterMatch
     private var mBinding: FragmentStatsBinding? = null
     lateinit var binding: FragmentStatsBinding
     private val model: StatsViewModel by viewModels()
@@ -26,65 +30,61 @@ class StatsFragment : Fragment(){
         // 바인딩 세팅
         binding = FragmentStatsBinding.inflate(inflater, container, false)
         mBinding = binding
+        setObserver()
         // connect
         model.getMMR()
-        // 리스너 세팅
-        setListener()
-        // 랭크매치 기록 옵저빙
-        model.mmrLiveData.observe(viewLifecycleOwner){
-            if(it.isNotEmpty()) {
-                // 첫번째 매치 데이터로 간단한 인포 생성
-                val rankName: String? = it[0].currenttier?.let { it1 -> ChangerankUtil.getRank(it1) }
-                val elo: Int? = it[0].ranking_in_tier
-                val mmr: Int? = it[0].elo
-                val lastMatch: String? = it[0].date
-                var url: String = "https://media.valorant-api.com/competitivetiers/edb72a72-7e6d-6010-9591-7c053bbdbf48/"
-                // 21 ~ 23은 불멸 1 2 3이 불멸 3으로 통합되어서, 불멸 3으로 고정 그 외는 랭크에 맞게 표시
-                if (it[0].currenttier!! !in 21..23) {url += it[0].currenttier.toString() + "largeicon.png"} else {url += "23/largeicon.png"}
-                // UI Setting
-                binding.statsPlayerRank.text = rankName
-                binding.statsPlayerElo.text = " " + elo.toString() + "RP"
-                binding.statsTitle.text = App.prefs.getString("name", "닉네임을 불러올 수 없습니다") + "#" +App.prefs.getString("tag", "태그를 불러올 수 없습니다")
-                Glide.with(this)
-                        .load(url)
-                        .into(binding.statsRankImageView)
-                // 상세 전적정보 (승패, ELO 떨어진거)
-                for (i in it) {
-                    val tier: Int? = i.currenttier
-                    val elo: Int? = i.ranking_in_tier
-                    var date: String? = i.date
-                    val mmr: Int? = i.elo
-                    // UI 세팅하면 될 듯
-
-                }
-            }
-        }
         return mBinding?.root
     }
-
-    fun dateFormat(date:String){
-        var splitDate = date.split(",").toMutableList()
-        var translationDate:String = ""
-        // 영어로 된 요일을 변경
-        when(splitDate[0]){
-            "Monday" -> splitDate[0] = "월요일"
-            "Tuesday" -> splitDate[0] = "화요일"
-            "Wednesday" -> splitDate[0] = "수요일"
-            "Thursday" -> splitDate[0] = "목요일"
-            "Firday" -> splitDate[0] = "금요일"
-            "Saturday" -> splitDate[0] = "토요일"
-            "Sunday" -> splitDate[0] = "일요일"
+    private fun setObserver(){
+        // 랭크매치 기록 옵저빙
+        mmrLiveDataObserver()
+        // 로딩창 옵저빙
+        loadingLiveDataObserver()
+    }
+    // mmrLiveData 옵저버
+    private fun mmrLiveDataObserver() {
+        // 해당 아이디의 전적 데이터를 가져옴
+        model.mmrLiveData.observe(viewLifecycleOwner){
+            if(it.isNotEmpty()) {
+                // 랭크부분 UI 업데이트
+                initRank(it[0])
+                // 상세 전적정보 (승패, ELO 떨어진거)
+                initRecycler(it)
+            }
         }
-        // 달 변경
+    }
+    // loadingLiveData 옵저버
+    private fun loadingLiveDataObserver(){
+        // Progressbar에 대한 정보를 관찰
+        model.isLoading.observe(viewLifecycleOwner){
+            // 로딩창을 띄우라고하면
+            if(it){
+                showLoading()
+            }
+            // 로딩창 띄우지 말라고 하면
+            else{
+                dismissLoading()
+            }
+        }
+    }
+    private fun showLoading() = LoadingDialog(requireContext()).show()
+    private fun dismissLoading() = LoadingDialog(requireContext()).dismiss()
+    // 랭크 섹션 UI 세팅
+    private fun initRank(latelyMatchDate:matchList){
+        // UI Setting
+        binding.statsPlayerRank.text = ChangerankUtil.getRank(latelyMatchDate.currenttier!!)
+        binding.statsPlayerElo.text = " " + latelyMatchDate.ranking_in_tier!!.toString() + "RP"
+        binding.statsTitle.text = App.prefs.getString("name", "닉네임을 불러올 수 없습니다") + "#" +App.prefs.getString("tag", "태그를 불러올 수 없습니다")
+        // 랭크 아이콘 로드
+        Glide.with(this)
+                .load(ChangerankUtil.getRankIcon(latelyMatchDate.currenttier!!))
+                .into(binding.statsRankImageView)
     }
 
-    fun setListener(){
-//        mBinding?.statsTextInputLayout?.setEndIconOnClickListener {
-//            it.setOnClickListener {
-//                model.getMMR()
-//                Log.e("로그", "검색")
-//            }
-//        }
+    private fun initRecycler(items: List<matchList>){
+        matchAdapter = RecyclerAdapterMatch(requireContext())
+        binding.statsDetailInfo.adapter = matchAdapter
+        matchAdapter.data = items as MutableList<matchList>
     }
 
     override fun onDestroyView() {

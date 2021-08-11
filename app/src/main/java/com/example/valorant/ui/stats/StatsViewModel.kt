@@ -15,29 +15,34 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class StatsViewModel : ViewModel() {
-    // 통신에서 받을 mmr을 LiveData로 설정
+    // 통신에서 받을 데이터를 LiveData로 설정
     private val _mmrLiveData = MutableLiveData<MutableList<matchList>>()
     val mmrLiveData: MutableLiveData<MutableList<matchList>>
         get() = _mmrLiveData
-
+    // Progressbar 설정
+    private val _isLoading = MutableLiveData<Boolean>()
+    val isLoading: MutableLiveData<Boolean>
+        get() = _isLoading
     init{
         // 초기화
         _mmrLiveData.value = ArrayList()
+        _isLoading.value = false
     }
+    // API 연결
     fun getMMR(){
         val call = RetrofitBuilder.connect_henrikdev
         val uid = App.prefs.getString("uid", "")
-        // uid가 저장안된다면 종료
+        // 서버로 보낼 데이터가 존재하지 않으면 종료
         if(uid == "")
             return
-
-        // uid로 통신
+        // 프로그래스바 실행
+        doLoading()
+        // API 연결 시작
         call.getMMR(uid).enqueue(object: Callback<matchData>{
             override fun onFailure(call: Call<matchData>, t: Throwable) {
                 // stats: 500
                 Log.e("로그", "에러: $t")
             }
-
             override fun onResponse(call: Call<matchData>, response: Response<matchData>) {
                 if(response.isSuccessful){
                     // stats 200
@@ -48,7 +53,14 @@ class StatsViewModel : ViewModel() {
                     // code 400
                 }
             }
-
         })
+        // 프로그래스바 종료
+        doneLoading()
+    }
+    private fun doLoading(){
+        _isLoading.value = true
+    }
+    private fun doneLoading(){
+        _isLoading.value = false
     }
 }
