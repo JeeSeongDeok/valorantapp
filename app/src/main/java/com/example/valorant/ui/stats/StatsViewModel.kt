@@ -1,22 +1,25 @@
 package com.example.valorant.ui.stats
 
-import android.util.Log
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.valorant.App
+import com.example.valorant.data.repository.MatchRepository
+import com.example.valorant.data.repository.MatchRepositoryImpl
 import com.example.valorant.di.RetrofitBuilder
 import com.example.valorant.model.matchList
-import com.example.valorant.model.matchData
-import okhttp3.internal.notify
+import kotlinx.coroutines.Dispatchers.Main
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
-class StatsViewModel : ViewModel() {
+open class StatsViewModel : ViewModel() {
+    // repository
+    val matchRepository by lazy{
+        MatchRepositoryImpl()
+    }
     // 통신에서 받을 데이터를 LiveData로 설정
-    private val _mmrLiveData = MutableLiveData<MutableList<matchList>>()
+    private var _mmrLiveData = MutableLiveData<MutableList<matchList>>()
     val mmrLiveData: MutableLiveData<MutableList<matchList>>
         get() = _mmrLiveData
     // Progressbar 설정
@@ -30,31 +33,14 @@ class StatsViewModel : ViewModel() {
     }
     // API 연결
     fun getMMR(){
-        val call = RetrofitBuilder.connect_henrikdev
-        val uid = App.prefs.getString("uid", "")
-        // 서버로 보낼 데이터가 존재하지 않으면 종료
-        if(uid == "")
-            return
         // 프로그래스바 실행
         doLoading()
-        // API 연결 시작
-        call.getMMR(uid).enqueue(object: Callback<matchData>{
-            override fun onFailure(call: Call<matchData>, t: Throwable) {
-                // stats: 500
-                Log.e("로그", "에러: $t")
+        viewModelScope.launch {
+            val statsLiveData:MutableLiveData<List<matchList>> = matchRepository.getStats() as MutableLiveData<List<matchList>>
+            withContext(Main){
+                _mmrLiveData = statsLiveData as MutableLiveData<MutableList<matchList>>
             }
-            override fun onResponse(call: Call<matchData>, response: Response<matchData>) {
-                if(response.isSuccessful){
-                    // stats 200
-                    Log.e("로그", "결과: " + response.body().toString())
-                    _mmrLiveData.value = response.body()?.data as MutableList<matchList>?
-                }
-                else{
-                    // code 400
-                }
-            }
-        })
-        // 프로그래스바 종료
+        }
         doneLoading()
     }
     private fun doLoading(){

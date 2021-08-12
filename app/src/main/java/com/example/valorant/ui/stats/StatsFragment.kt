@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.example.valorant.App
 import com.example.valorant.databinding.FragmentStatsBinding
@@ -14,6 +15,8 @@ import com.example.valorant.model.matchList
 import com.example.valorant.ui.loading.LoadingDialog
 import com.example.valorant.ui.stats.adapter.RecyclerAdapterMatch
 import com.example.valorant.utils.ChangerankUtil
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.isActive
 
 
 class StatsFragment : Fragment(){
@@ -30,22 +33,19 @@ class StatsFragment : Fragment(){
         // 바인딩 세팅
         binding = FragmentStatsBinding.inflate(inflater, container, false)
         mBinding = binding
-        setObserver()
+        // 로딩창 옵저빙
+        loadingLiveDataObserver()
+        // 랭크매치 기록 옵저빙
+        mmrLiveDataObserver()
         // connect
         model.getMMR()
         return mBinding?.root
-    }
-    private fun setObserver(){
-        // 랭크매치 기록 옵저빙
-        mmrLiveDataObserver()
-        // 로딩창 옵저빙
-        loadingLiveDataObserver()
     }
     // mmrLiveData 옵저버
     private fun mmrLiveDataObserver() {
         // 해당 아이디의 전적 데이터를 가져옴
         model.mmrLiveData.observe(viewLifecycleOwner){
-            if(it.isNotEmpty()) {
+            if(it != null && it.isNotEmpty()) {
                 // 랭크부분 UI 업데이트
                 initRank(it[0])
                 // 상세 전적정보 (승패, ELO 떨어진거)
@@ -57,12 +57,13 @@ class StatsFragment : Fragment(){
     private fun loadingLiveDataObserver(){
         // Progressbar에 대한 정보를 관찰
         model.isLoading.observe(viewLifecycleOwner){
+            Log.e("로그", "StatsFragment - 로딩값: $it")
             // 로딩창을 띄우라고하면
             if(it){
                 showLoading()
             }
             // 로딩창 띄우지 말라고 하면
-            else{
+            else if(it){
                 dismissLoading()
             }
         }
