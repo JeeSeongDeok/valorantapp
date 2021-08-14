@@ -7,7 +7,7 @@
 
     <ImageView
         android:id="@+id/list_match_rankIcon"
-        android:layout_width="wrap_content"
+        android:layout_width="148dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         app:srcCompat="@drawable/rankicon" />
@@ -23,21 +23,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="2021년 8월 5일 목요일 10:49 AM" />
+            android:text="2021년 8월 5일 목요일 10:49 AM"
+            android:fontFamily="@font/scdream7"/>
 
         <TextView
             android:id="@+id/list_match_rankInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="승 +19 RP" />
+            android:text="승 +19 RP"
+            android:fontFamily="@font/scdream5"/>
 
         <TextView
             android:id="@+id/list_match_mmrInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="MMR - 1803" />
+            android:text="MMR - 1803"
+            android:fontFamily="@font/scdream5"/>
 
     </LinearLayout>
 </LinearLayout>

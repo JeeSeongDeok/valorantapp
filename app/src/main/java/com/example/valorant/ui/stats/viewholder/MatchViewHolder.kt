@@ -15,12 +15,17 @@ class MatchViewHolder(v: View) : RecyclerView.ViewHolder(v) {
     private val matchDate:TextView = itemView.findViewById(R.id.list_match_date)
     private val matchElo:TextView = itemView.findViewById(R.id.list_match_rankInfo)
     private val mmr:TextView = itemView.findViewById(R.id.list_match_mmrInfo)
+
     fun bind(item:matchList){
         Glide.with(view)
                 .load(ChangerankUtil.getRankIcon(item.currenttier!!))
                 .into(rankIcon)
         matchDate.text = item.date
-        matchElo.text = item.elo.toString()
-        mmr.text = item.ranking_in_tier.toString()
+        var text = if(item.mmr_change_to_last_game!! < 0)
+                    "패"
+                else
+                    "승"
+        matchElo.text = "결과: " + text + " RP - " + item.ranking_in_tier.toString()
+        mmr.text = "MMR - " + item.elo.toString()
     }
 }
