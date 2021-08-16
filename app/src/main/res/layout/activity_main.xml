@@ -24,6 +24,7 @@
         android:layout_height="wrap_content"
         app:menu="@menu/nav_menu"
         android:id="@+id/myBottomNav"
+        app:defaultNavHost="true"
         app:backgroundTint="@color/navBottom"
         app:labelVisibilityMode="unlabeled"
         app:itemIconSize="32dp"/>
