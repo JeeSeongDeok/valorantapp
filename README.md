@@ -78,3 +78,8 @@
 
 ## License
 MIT 라이센스에 따라 배포합니다. 자세한 내용은 [라이센스](https://github.com/JeeSeongDeok/valorantapp/blob/master/LICENSE.md)를 참조해주세요
+
+## API
+API 주소입니다<br>
+- [나만의 상점 API](https://github.com/RumbleMike/ValorantClientAPI)
+- [전적검색 API](https://github.com/Henrik-3/unofficial-valorant-api)
