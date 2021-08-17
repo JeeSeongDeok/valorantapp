@@ -7,11 +7,11 @@
 <img src = "https://user-images.githubusercontent.com/23256819/129694269-ddee9e4f-e965-4834-ab56-ba155e8ba806.png" width=150 height = 300>
 </p>
 <p align=center>
-<img src = "https://user-images.githubusercontent.com/23256819/129694621-8ca4e762-7d85-46f0-a514-057defb36ffe.png" width=180 height = 350>
-<img src = "https://user-images.githubusercontent.com/23256819/129694626-37d5cb76-a7eb-4d6b-bfe5-96f7ef1927e1.png" width=180 height = 350>
-<img src = "https://user-images.githubusercontent.com/23256819/129694635-ebfeb1f3-796b-4001-81df-997c5c2d37ec.png" width=180 height = 350>
-<img src = "https://user-images.githubusercontent.com/23256819/129694653-3ddf55e5-d4c4-48a6-96bd-3162c72949d1.png" width=180 height = 350>
-<img src = "https://user-images.githubusercontent.com/23256819/129694660-3fead4ea-ac54-42e6-a472-4b105939357d.png" width=180 height = 350>
+<img src = "https://user-images.githubusercontent.com/23256819/129694621-8ca4e762-7d85-46f0-a514-057defb36ffe.png" width=150 height = 300>
+<img src = "https://user-images.githubusercontent.com/23256819/129694626-37d5cb76-a7eb-4d6b-bfe5-96f7ef1927e1.png" width=150 height = 300>
+<img src = "https://user-images.githubusercontent.com/23256819/129694635-ebfeb1f3-796b-4001-81df-997c5c2d37ec.png" width=150 height = 300>
+<img src = "https://user-images.githubusercontent.com/23256819/129694653-3ddf55e5-d4c4-48a6-96bd-3162c72949d1.png" width=150 height = 300>
+<img src = "https://user-images.githubusercontent.com/23256819/129694660-3fead4ea-ac54-42e6-a472-4b105939357d.png" width=150 height = 300>
 </p>
 
 ## About
