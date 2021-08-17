@@ -30,8 +30,6 @@ class StoreViewModel: ViewModel() {
 
             override fun onResponse(call: Call<List<storeData>>, response: Response<List<storeData>>) {
                 Log.d("로그", "결과: " + response.body())
-                var result: List<storeData>? = response.body()
-                Log.d("로그", "이미지 주소: " + result?.get(0)?.displayName)
                 _resultLiveData.value = response.body()
             }
 

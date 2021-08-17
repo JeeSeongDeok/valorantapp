@@ -12,4 +12,5 @@
     <color name="cardViewStoreStart">#1A000000</color>
     <color name="cardViewStoreEnd">#1C252E</color>
     <color name="navBottom">#1E1E1E</color>
+    <color name="cardViewBG">#CC1C252E</color>
 </resources>

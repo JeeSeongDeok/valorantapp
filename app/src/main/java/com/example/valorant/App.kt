@@ -11,12 +11,14 @@ class App : Application() {
     }
     override fun onCreate() {
         prefs = PreferenceUtil(applicationContext)
+        // 사용자 모드 확인
+        setMode()
         super.onCreate()
-        if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
-            setTheme(R.style.darkTheme_Valorant)
-        } else {
-            setTheme(R.style.Theme_Valorant)
-        }
-       // AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+    }
+    fun setMode(){
+        if(prefs.getString("mode", "light") == "dark")
+            ThemUtil.applyTheme(ThemUtil.ThemeMode.DARK)
+        else
+            ThemUtil.applyTheme(ThemUtil.ThemeMode.LIGHT)
     }
 }

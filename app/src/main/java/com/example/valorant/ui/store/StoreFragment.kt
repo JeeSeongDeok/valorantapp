@@ -31,7 +31,7 @@ class StoreFragment: Fragment(),  View.OnClickListener{
             if(it.isNotEmpty()){
                 var imgArray = arrayOf(binding.gunImageView1, binding.gunImageView2, binding.gunImageView3, binding.gunImageView4)
                 var textArray = arrayOf(binding.gunTextView1, binding.gunTextView2, binding.gunTextView3, binding.gunTextView4)
-                for(i in 0..3){
+                for(i in it.indices){
                     imageSet(imgArray[i], textArray[i], it[i].displayIcon, it[i].displayName)
                 }
                 binding.connectBtn.visibility = View.GONE
