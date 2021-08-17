@@ -75,6 +75,9 @@
 
 ![](https://developer.android.com/topic/libraries/architecture/images/final-architecture.png)
 
+## Road Map
+[프로젝트 보드](https://github.com/JeeSeongDeok/valorantapp/projects/1)에 로드맵을 만들었습니다.
+버그를 발견한다면 [issue tab](https://github.com/JeeSeongDeok/valorantapp/issues)에 작성해주세요
 
 ## License
 MIT 라이센스에 따라 배포합니다. 자세한 내용은 [라이센스](https://github.com/JeeSeongDeok/valorantapp/blob/master/LICENSE.md)를 참조해주세요
