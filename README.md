@@ -1,10 +1,10 @@
 # 발로란트 나만의 상점 어플리케이션
 <p align=center>
-<img src = "https://user-images.githubusercontent.com/23256819/129694135-94d27215-7ead-4931-90ca-7876ad9e0972.png" width=180 height = 350>
-<img src = "https://user-images.githubusercontent.com/23256819/129694140-919e4773-a11a-4405-93e2-7000e3f7d7d8.png" width=180 height = 350>
-<img src = "https://user-images.githubusercontent.com/23256819/129694259-989334ee-4bc7-41b8-a89c-a58d6c6faa7d.png" width=180 height = 350>
-<img src = "https://user-images.githubusercontent.com/23256819/129694265-6ad371e6-d086-4fce-ba01-85624643bbbc.png" width=180 height = 350>
-<img src = "https://user-images.githubusercontent.com/23256819/129694269-ddee9e4f-e965-4834-ab56-ba155e8ba806.png" width=180 height = 350>
+<img src = "https://user-images.githubusercontent.com/23256819/129694135-94d27215-7ead-4931-90ca-7876ad9e0972.png" width=150 height = 300>
+<img src = "https://user-images.githubusercontent.com/23256819/129694140-919e4773-a11a-4405-93e2-7000e3f7d7d8.png" width=150 height = 300>
+<img src = "https://user-images.githubusercontent.com/23256819/129694259-989334ee-4bc7-41b8-a89c-a58d6c6faa7d.png" width=150 height = 300>
+<img src = "https://user-images.githubusercontent.com/23256819/129694265-6ad371e6-d086-4fce-ba01-85624643bbbc.png" width=150 height = 300>
+<img src = "https://user-images.githubusercontent.com/23256819/129694269-ddee9e4f-e965-4834-ab56-ba155e8ba806.png" width=150 height = 300>
 </p>
 <p align=center>
 <img src = "https://user-images.githubusercontent.com/23256819/129694621-8ca4e762-7d85-46f0-a514-057defb36ffe.png" width=180 height = 350>
