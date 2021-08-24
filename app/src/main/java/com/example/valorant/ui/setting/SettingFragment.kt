@@ -29,6 +29,7 @@ class SettingFragment : Fragment() {
         setSwitch()
         // 다크모드 설정
         setMode()
+
         return mBinding?.root
     }
     private fun setSwitch(){
@@ -51,12 +52,11 @@ class SettingFragment : Fragment() {
         App.prefs.setString("mode", "dark")
         ThemUtil.applyTheme(ThemUtil.ThemeMode.DARK)
         (activity as MainActivity).recreate()
-    //(activity as MainActivity).refresh()
     }
 
     private fun onLightMode(){
         App.prefs.setString("mode", "light")
         ThemUtil.applyTheme(ThemUtil.ThemeMode.LIGHT)
-        (activity as MainActivity).refresh()
+        (activity as MainActivity).recreate()
     }
 }

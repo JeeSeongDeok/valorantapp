@@ -37,7 +37,7 @@ object RetrofitBuilder {
     val connect_riot by lazy{
         val client: OkHttpClient = OkHttpClient.Builder().addInterceptor(Interceptor { chain ->
             val newRequest = chain.request().newBuilder()
-                    .addHeader("Authorization", "Bearer $token")
+                    .addHeader("Authorization", "bearer token") //"Bearer $token"
                     .build()
             chain.proceed(newRequest)
         }).build()

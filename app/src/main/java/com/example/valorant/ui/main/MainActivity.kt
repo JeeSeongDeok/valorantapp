@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
     private val stats = StatsFragment()
     private val store = StoreFragment()
     private val setting = SettingFragment()
-    private lateinit var  bottomNavigationView: View
+    private lateinit var  bottomNavigationView: BottomNavigationView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -37,43 +37,9 @@ class MainActivity : AppCompatActivity() {
         val navController = navHostFragment.navController
         NavigationUI.setupWithNavController(mBinding.myBottomNav, navController)
 
-        //bottomNavigationView의 id를 가져와서 클릭 리스너를 생성
-        bottomNavigationView = findViewById<View>(R.id.myBottomNav) as BottomNavigationView
 
-        (bottomNavigationView as BottomNavigationView).setOnNavigationItemSelectedListener { item ->
-            when (item.itemId) {
-                // 메인으로 이동
-                R.id.homeFragment -> {
-                    changeFragment(home)
-                }
-                // 전적검색 이동
-                R.id.statsFragment -> {
-                    changeFragment(stats)
-                }
-                // 상점 이동
-                R.id.storeFragment -> {
-                    changeFragment(store)
-                }
-                // 설정 이동
-                R.id.settingFragment ->{
-                    changeFragment(setting)
-                }
-            }
-            true
-        }
-    }
+        bottomNavigationView = findViewById<BottomNavigationView>(R.id.myBottomNav)
 
-
-    fun refresh(){
-        val refreshIntent:Intent = Intent(this, MainActivity::class.java)
-        startActivity(refreshIntent)
-        finish()
-    }
-
-    private fun changeFragment(fragment: Fragment) {
-        supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.my_nav_host, fragment)
-            .commit()
+        bottomNavigationView.setupWithNavController(navController)
     }
 }
