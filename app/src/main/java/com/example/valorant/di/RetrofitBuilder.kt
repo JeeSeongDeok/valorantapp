@@ -3,11 +3,14 @@ package com.example.valorant.di
 import com.example.valorant.data.api.APIInterface
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import okhttp3.*
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+
 // 싱글톤
 object RetrofitBuilder {
+    val httpClient:OkHttpClient = OkHttpClient()
     // Retrofit을 사용하기 위한 함수
     // Base_url에 서버의 url를 넣으면 사용 가능하다
     val gson : Gson =  GsonBuilder().setLenient().create()
@@ -30,5 +33,19 @@ object RetrofitBuilder {
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build()
                 .create(APIInterface::class.java)
+    }
+    val connect_riot by lazy{
+        val client: OkHttpClient = OkHttpClient.Builder().addInterceptor(Interceptor { chain ->
+            val newRequest = chain.request().newBuilder()
+                    .addHeader("Authorization", "Bearer $token")
+                    .build()
+            chain.proceed(newRequest)
+        }).build()
+
+        retrofitClient
+                .client(client)
+                .baseUrl("")
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .build()
     }
 }

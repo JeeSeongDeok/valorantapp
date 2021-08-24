@@ -50,7 +50,8 @@ class SettingFragment : Fragment() {
     private fun onDarkMode(){
         App.prefs.setString("mode", "dark")
         ThemUtil.applyTheme(ThemUtil.ThemeMode.DARK)
-        (activity as MainActivity).refresh()
+        (activity as MainActivity).recreate()
+    //(activity as MainActivity).refresh()
     }
 
     private fun onLightMode(){

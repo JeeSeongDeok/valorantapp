@@ -18,6 +18,11 @@ class StoreViewModel: ViewModel() {
     init{
 
     }
+
+    fun testConnect(id:String, pw:String){
+
+    }
+
     fun Connect(id:String, pw:String){
         Log.d("로그", "콜 ")
         val call = RetrofitBuilder.CONNET_SERVICE
