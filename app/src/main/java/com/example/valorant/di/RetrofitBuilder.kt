@@ -10,11 +10,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 // 싱글톤
 object RetrofitBuilder {
-    val httpClient:OkHttpClient = OkHttpClient()
     // Retrofit을 사용하기 위한 함수
     // Base_url에 서버의 url를 넣으면 사용 가능하다
     val gson : Gson =  GsonBuilder().setLenient().create()
-
 
     private val retrofitClient: Retrofit.Builder by lazy{
         Retrofit.Builder()
@@ -33,19 +31,5 @@ object RetrofitBuilder {
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build()
                 .create(APIInterface::class.java)
-    }
-    val connect_riot by lazy{
-        val client: OkHttpClient = OkHttpClient.Builder().addInterceptor(Interceptor { chain ->
-            val newRequest = chain.request().newBuilder()
-                    .addHeader("Authorization", "bearer token") //"Bearer $token"
-                    .build()
-            chain.proceed(newRequest)
-        }).build()
-
-        retrofitClient
-                .client(client)
-                .baseUrl("")
-                .addConverterFactory(GsonConverterFactory.create(gson))
-                .build()
     }
 }
