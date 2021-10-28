@@ -1,4 +1,4 @@
-package com.example.valorant.model
+package com.example.valorant.data.database.dto
 import androidx.room.*
 import androidx.room.Entity
 

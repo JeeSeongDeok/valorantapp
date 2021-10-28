@@ -1,9 +1,8 @@
 package com.example.valorant.di
 
-import com.example.valorant.data.api.APIInterface
+import com.example.valorant.data.api.MyStoreApi
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import okhttp3.*
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -18,18 +17,18 @@ object RetrofitBuilder {
         Retrofit.Builder()
     }
     // API서버와 연결 시 Retrofit객체를 구현할 인터페이스를 통해 만든다.
-    val CONNET_SERVICE: APIInterface by lazy{
+    val CONNET_SERVICE: MyStoreApi by lazy{
         retrofitClient
                 .baseUrl("http://192.168.25.41:5000/")
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build()
-                .create(APIInterface::class.java)
+                .create(MyStoreApi::class.java)
     }
-    val connect_henrikdev: APIInterface by lazy {
+    val CONNECT___HENRIKDEV: MyStoreApi by lazy {
         retrofitClient
                 .baseUrl("https://api.henrikdev.xyz/")
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build()
-                .create(APIInterface::class.java)
+                .create(MyStoreApi::class.java)
     }
 }

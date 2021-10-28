@@ -1,9 +1,9 @@
-package com.example.valorant.model.PlayerStore
+package com.example.valorant.data.api.dto.PlayerStore
 
 
 import com.google.gson.annotations.SerializedName
 
-data class Item(
+data class ItemXX(
     @SerializedName("BasePrice")
     val basePrice: Int,
     @SerializedName("CurrencyID")
@@ -13,5 +13,5 @@ data class Item(
     @SerializedName("IsPromoItem")
     val isPromoItem: Boolean,
     @SerializedName("Item")
-    val item: ItemX
+    val item: ItemXXX
 )

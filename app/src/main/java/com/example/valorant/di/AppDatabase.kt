@@ -4,8 +4,8 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.valorant.data.local.Dao
-import com.example.valorant.model.Entity
+import com.example.valorant.data.database.Dao
+import com.example.valorant.data.database.dto.Entity
 
 @Database(entities = [Entity::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {

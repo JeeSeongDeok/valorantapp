@@ -1,4 +1,4 @@
-package com.example.valorant.model.PlayerStore
+package com.example.valorant.data.api.dto.PlayerStore
 
 
 import com.google.gson.annotations.SerializedName
