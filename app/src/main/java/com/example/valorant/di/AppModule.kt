@@ -2,6 +2,7 @@ package com.example.valorant.di
 
 import com.example.valorant.data.api.HenrikDevApi
 import com.example.valorant.data.api.MyStoreApi
+import com.example.valorant.utils.Constants
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,7 +19,7 @@ object AppModule {
     @Singleton
     fun provideStoreApi(): MyStoreApi{
         return Retrofit.Builder()
-            .baseUrl("http://192.168.25.41:5000/")
+            .baseUrl(Constants.MY_STORE_BASE_URL)
             .addConverterFactory(GsonConverterFactory.create(RetrofitBuilder.gson))
             .build()
             .create(MyStoreApi::class.java)
@@ -28,7 +29,7 @@ object AppModule {
     @Singleton
     fun provideHenrikApi(): HenrikDevApi{
         return Retrofit.Builder()
-            .baseUrl("https://api.henrikdev.xyz/")
+            .baseUrl(Constants.HENRIK_DEV_API_BASE_URL)
             .addConverterFactory(GsonConverterFactory.create(RetrofitBuilder.gson))
             .build()
             .create(HenrikDevApi::class.java)
