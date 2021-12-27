@@ -89,3 +89,5 @@ API 주소입니다<br>
 
 ## Design
 [디자인](https://dribbble.com/shots/11914195-Valorant-App-Design-2)은 주소에서 사용했습니다.
+
+추 후 Compose로 리팩토링할 예정입니다.
